@@ -1,6 +1,6 @@
 CC=cc
 CFLAGS=-I MLX42/include -I include -I include/defs
-NAME=cub3d
+NAME=cub3D
 SRC_DIR=src
 OBJ_DIR=obj
 
@@ -28,18 +28,19 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) Makefile
 
 $(MLX):
 	git clone https://github.com/codam-coding-college/MLX42.git
-	cd MLX42
-	cmake -B build
-	cmake --build build -j4
+	(cd MLX42 && cmake -B build && cmake --build build)
 
 $(NAME): $(MLX) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
+
+reset: fclean
+	rm -rf MLX42
 
 re: fclean all
 
