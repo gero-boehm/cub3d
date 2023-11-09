@@ -32,7 +32,7 @@ $(MLX):
 	cmake -B build
 	cmake --build build -j4
 
-$(NAME): $(OBJ) $(MLX)
+$(NAME): $(MLX) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
 
 clean:

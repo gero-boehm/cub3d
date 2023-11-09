@@ -1,13 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include "constdef.h"
 #include "planedef.h"
 #include "scene.h"
 #include "vec.h"
 #include "ray.h"
 #include "mat.h"
-
-#define PI 3.14159265358979323846
 
 uint32_t	get_pixel(mlx_texture_t *tex, t_plane plane, t_vec intersect)
 {

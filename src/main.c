@@ -30,6 +30,7 @@
 #include <stdbool.h>
 #include <MLX42/MLX42.h>
 #include <MLX42/../lodepng/lodepng.h>
+#include "player.h"
 
 static mlx_image_t* image;
 
@@ -76,13 +77,13 @@ void loop_hook(void *param)
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_SPACE))
 		scene->player.position.y += 1;
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_S))
-		scene->player.position.x -= 1;
+		player_move_back(&scene->player);
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_W))
-		scene->player.position.x += 1;
+		player_move_front(&scene->player);
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_A))
-		scene->player.position.z -= 1;
+		player_move_left(&scene->player);
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_D))
-		scene->player.position.z += 1;
+		player_move_right(&scene->player);
 	scene_draw(scene);
 }
 

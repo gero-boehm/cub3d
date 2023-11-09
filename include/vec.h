@@ -15,5 +15,6 @@ double	vec_length(t_vec v);
 
 t_vec 	vec_rotate(t_vec v, double pitch, double yaw);
 
+void	vec_print(t_vec v);
 
 #endif
